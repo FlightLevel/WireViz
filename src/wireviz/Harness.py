@@ -78,8 +78,11 @@ class Harness:
         self.connectors[from_name].activate_pin(from_pin, Side.RIGHT)
         self.connectors[to_name].activate_pin(to_pin, Side.LEFT)
 
-    def add_mate_component(self, from_name, to_name, arrow_type) -> None:
-        self.mates.append(MateComponent(from_name, to_name, arrow_type))
+    def add_mate_component(self, from_name, from_pin, to_name, to_pin, arrow_type) -> None:
+        if not arrow_type is None:
+            self.mates.append(MateComponent(from_name, to_name, arrow_type))
+        self.connectors[from_name].activate_pin(from_pin, Side.RIGHT)
+        self.connectors[to_name].activate_pin(to_pin, Side.LEFT)
 
     def add_bom_item(self, item: dict) -> None:
         self.additional_bom_items.append(item)

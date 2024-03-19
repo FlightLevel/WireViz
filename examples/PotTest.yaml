@@ -1,0 +1,36 @@
+connectors:
+  StringPotReceptacle: &stringpot
+    type: 3PINTYPE
+    subtype: male
+    pins: [A, B, C]
+    pinlabels: [GROUND, SWEEP, SUPPLY]
+  StringPotPlug:
+    <<: *stringpot
+    subtype: female
+  UEICard: &ueicard
+    type: D-Sub
+    subtype: male
+    pincount: 37
+    hide_disconnected_pins: True
+  UEIPlug:
+    <<: *ueicard
+    subtype: female
+
+
+cables:
+  PotCable:
+    wirecount: 3
+    colors: [BK, YE, RD]
+    gauge: 22 AWG
+
+connections:
+  -
+    - StringPotReceptacle.C1: [A, B, C]
+    - <=>
+    - StringPotPlug.P1: [A, B, C]
+    - PotCable.ElevPosCable: [1, 2, 3]
+    - UEIPlug.P2: [17,18,19]
+  -
+    - P2: [17,18,19]
+    - <==>
+    - UEICard.C2: [17,18,19]

@@ -27,6 +27,7 @@ cables:
     wirecount: 4
     color_code: DIN
     length: 0.1
+    gauge: [24 AWG, 26 AWG, 28 AWG, 30 AWG]
   WIRE:
     wirecount: 1
     colors: [BK]

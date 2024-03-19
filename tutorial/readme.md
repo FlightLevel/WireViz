@@ -25,7 +25,7 @@ connections:
     - X2: [1-4]
 ```
 
-![](tutorial01.png)
+![img](tutorial01.png)
 
 [Source](tutorial01.yml) - [Bill of Materials](tutorial01.bom.tsv)
 

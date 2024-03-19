@@ -351,9 +351,12 @@ def parse(
                         harness.add_mate_pin(
                             from_name, from_pin, to_name, to_pin, designator
                         )
-                    elif "=" in designator and index_entry == 0:
+                    elif "=" in designator:
                         # mate two connectors as a whole
-                        harness.add_mate_component(from_name, to_name, designator)
+                        if index_entry == 0:
+                            harness.add_mate_component(from_name, from_pin, to_name, to_pin, designator)
+                        else:
+                            harness.add_mate_component(from_name, from_pin, to_name, to_pin, None)
 
     # harness population completed =============================================
 
